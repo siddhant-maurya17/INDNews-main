@@ -1,0 +1,79 @@
+{% load static %}
+{% load humanize %}
+<div class="container-fluid fh5co_footer_bg pb-3">
+  <div class="container animate-box">
+      <div class="row">
+          <div class="col-12 spdp_right py-5"><a href="{% url 'index' %}"><img src="{% static 'images/white_logo.png' %}" alt="img" class="footer_logo"/></a></div>
+          <div class="clearfix"></div>
+          <div class="col-12 col-md-4 col-lg-3">
+              <div class="footer_main_title py-3"> About</div>
+              <div class="footer_sub_about pb-3">This is Project work for the summer trainning of Python Programming.INDNews is a News website based on Django. This Project is developed by OMJI VERMA and Team.
+              </div>
+              <div class="footer_mediya_icon">
+                  <div class="text-center d-inline-block"><a class="fh5co_display_table_footer">
+                      <div class="fh5co_verticle_middle"><i href="https://in.linkedin.com/" target="_blank" class="fa fa-linkedin"></i></div>
+                  </a></div>
+                  <div class="text-center d-inline-block"><a href="https://google.com/"  target="_blank" class="fh5co_display_table_footer">
+                      <div class="fh5co_verticle_middle"><i class="fa fa-google-plus"></i></div>
+                  </a></div>
+                  <div class="text-center d-inline-block"><a href="https://twitter.com/"  target="_blank" class="fh5co_display_table_footer">
+                      <div class="fh5co_verticle_middle"><i class="fa fa-twitter"></i></div>
+                  </a></div>
+                  <div class="text-center d-inline-block"><a href="https://facebook.com/"  target="_blank" class="fh5co_display_table_footer">
+                      <div class="fh5co_verticle_middle"><i class="fa fa-facebook"></i></div>
+                  </a></div>
+              </div>
+          </div>
+          <div class="col-12 col-md-3 col-lg-2">
+              <div class="footer_main_title py-3"> Category</div>
+              <ul class="footer_menu">
+                {% if ft_tag %}
+                {% for tag in ft_tag %}
+                    <li><a href="/{{tag.Slug}}" class=""><i class="fa fa-angle-right"></i>&nbsp;&nbsp; {{tag.Category}}</a></li>
+                {% endfor %}
+                {% else %}
+                    <p class="fh5co_tagg">No Tags Found</p>
+                {% endif %}
+              </ul>
+          </div>
+          <div class="col-12 col-md-5 col-lg-3 position_footer_relative">
+              <div class="footer_main_title py-3"> Most Viewed Posts</div>
+              {% if Most_Viewed %}
+              {% for news in Most_Viewed %}
+              <div class="footer_makes_sub_font"> {{news.Date | naturalday}}</div>
+              <a href="#" class="footer_post pb-4"> {{news.Headline|truncatechars:60}} </a>
+              {% endfor %}
+              {% else %}
+                  <p class="">No News Found</p>
+              {% endif %}
+              <div class="footer_position_absolute"><img src="{% static 'images/footer_sub_tipik.png' %}" alt="img" class="width_footer_sub_img"/></div>
+          </div>
+          <div class="col-12 col-md-12 col-lg-4 ">
+              <div class="footer_main_title py-3"> Trending Now</div>
+              {% if trending_news %}
+              {% for news in trending_news %}
+              <a href="/news/{{news.Slug}}" class="footer_img_post_6"><img src="{{news.Image.url}}" alt="img"/></a>
+              {% endfor %}
+              {% else %}
+                  <p class="">No News Found</p>
+              {% endif %}
+          </div>
+      </div>
+  
+  </div>
+</div>
+<div class="container-fluid fh5co_footer_right_reserved">
+  <div class="container">
+      <div class="row  ">
+          <div class="col-12 col-md-6 py-4 Reserved"> IND News © Copyright 2020, All rights reserved. </div>
+          <div class="col-12 col-md-6 spdp_right py-4">
+              <a href="{% url 'index' %}" class="footer_last_part_menu">Home</a>
+              <a href="{% url 'contact' %}" class="footer_last_part_menu">Contact</a>
+              </div>
+      </div>
+  </div>
+</div>
+
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>

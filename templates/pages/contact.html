@@ -1,0 +1,86 @@
+{% extends "base.html"%}
+{% block content %}
+{% load static %}
+<div class="container-fluid contact_us_bg_img">
+  <div class="container">
+      <div class="row">
+          <a href="#" class="fh5co_con_123"><i class="fa fa-home"></i></a>
+          <a href="#" class="fh5co_con pt-2"> Contact Us </a>
+      </div>
+  </div>
+</div>
+<div class="container-fluid  fh5co_fh5co_bg_contcat">
+  <div class="container">
+      <div class="row py-4">
+          <div class="col-md-4 py-3">
+              <div class="row fh5co_contact_us_no_icon_difh5co_hover">
+                  <div class="col-3 fh5co_contact_us_no_icon_difh5co_hover_1">
+                      <div class="fh5co_contact_us_no_icon_div"> <span><i class="fa fa-phone"></i></span> </div>
+                  </div>
+                  <div class="col-9 align-self-center fh5co_contact_us_no_icon_difh5co_hover_2">
+                      <span class="c_g d-block">Call Us</span>
+                      <span class="d-block c_g fh5co_contact_us_no_text">+91 9999 333 420</span>
+                  </div>
+                  <div class="clearfix"></div>
+              </div>
+          </div>
+          <div class="col-md-4 py-3">
+              <div class="row fh5co_contact_us_no_icon_difh5co_hover">
+                  <div class="col-3 fh5co_contact_us_no_icon_difh5co_hover_1">
+                      <div class="fh5co_contact_us_no_icon_div"> <span><i class="fa fa-envelope"></i></span> </div>
+                  </div>
+                  <div class="col-9 align-self-center fh5co_contact_us_no_icon_difh5co_hover_2">
+                      <span class="c_g d-block">Have any questions?</span>
+                      <span class="d-block c_g fh5co_contact_us_no_text">contact@indnews.com</span>
+                  </div>
+                  <div class="clearfix"></div>
+              </div>
+          </div>
+          <div class="col-md-4 py-3">
+              <div class="row fh5co_contact_us_no_icon_difh5co_hover">
+                  <div class="col-3 fh5co_contact_us_no_icon_difh5co_hover_1">
+                      <div class="fh5co_contact_us_no_icon_div"> <span><i class="fa fa-map-marker"></i></span> </div>
+                  </div>
+                  <div class="col-9 align-self-center fh5co_contact_us_no_icon_difh5co_hover_2">
+                      <span class="c_g d-block">Address</span>
+                      <span class="d-block c_g fh5co_contact_us_no_text"> 123 Some Street Kanpur Uttar Pradesh</span>
+                  </div>
+                  <div class="clearfix"></div>
+              </div>
+          </div>
+          <div class="clearfix"></div>
+      </div>
+  </div>
+</div>
+<div class="container-fluid mb-4">
+  <div class="container">
+      <div class="col-12 text-center contact_margin_svnit ">
+          <div class="text-center fh5co_heading py-2">Contact Us</div>
+      </div>
+      <div class="row">
+          <div class="col-12 col-md-6">
+            {% include "../partials/_message-alert.html" %}
+              <form class="row" id="fh5co_contact_form" action="{% url 'contact' %}" method="post">
+                {% csrf_token %}
+                  <div class="col-12 py-3">
+                      <input type="text" name="name" class="form-control fh5co_contact_text_box" placeholder="Enter Your Name" required />
+                  </div>
+                  <div class="col-6 py-3">
+                      <input type="email" name="email" class="form-control fh5co_contact_text_box" placeholder="E-mail" required />
+                  </div>
+                  <div class="col-6 py-3">
+                      <input type="text" name="subject" class="form-control fh5co_contact_text_box" placeholder="Subject" />
+                  </div>
+                  <div class="col-12 py-3">
+                      <textarea name="message" class="form-control fh5co_contacts_message" placeholder="Message" required></textarea>
+                  </div>
+                  <div class="col-12 py-3 text-center"> <button href="#" class="btn contact_btn" type="submit">Send Message</button> </div>
+              </form>
+          </div>
+          <div class="col-12 col-md-6 align-self-center">
+              <iframe src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=kalyanpur,%20kanpur+(dummy)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" class="map_sss" allowfullscreen></iframe>
+          </div>
+      </div>
+  </div>
+</div>
+{% endblock %}

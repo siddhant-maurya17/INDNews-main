@@ -1,0 +1,22 @@
+{% load static %}
+<div class="row mx-0 animate-box" data-animate-effect="fadeInUp">
+  <div class="col-12 text-center pb-4 pt-4">
+
+   <span class="step-links">
+      {% if News_Verical.has_previous %}
+          <a class="btn" href="?page=1"><i class="fa fa-long-arrow-left"></i>&nbsp;&nbsp; </a>
+          <a class="btn" href="?page={{ News_Verical.previous_page_number }}">previous</a>
+      {% endif %}
+
+        <span class="current">
+            Page {{ News_Verical.number }} of {{ News_Verical.paginator.num_pages }}
+        </span>
+
+      {% if News_Verical.has_next %}
+          <a class="btn" href="?page={{ News_Verical.next_page_number }}"><i class="fa fa-long-arrow-right"></i>&nbsp;&nbsp; </a>
+          <a class="btn" href="?page={{ News_Verical.paginator.num_pages }}">Last &raquo;</a>
+      {% endif %}
+    </span>
+   </div>
+</div>
+
